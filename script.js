@@ -69,9 +69,9 @@ projectItems.forEach((item) => {
                   img.style.transform = 'scale(1.15)';
             }
             const figure = item.querySelector(".figure-img");
-            if(figure){
+            if (figure) {
                   figure.style.transform = 'scale(0.98)';
-                  figure.style.borderRadius = '20px'; 
+                  figure.style.borderRadius = '20px';
             }
       })
       item.addEventListener('mouseleave', () => {
@@ -80,9 +80,9 @@ projectItems.forEach((item) => {
                   img.style.transform = 'scale(1)';
             }
             const figure = item.querySelector(".figure-img");
-            if(figure){
+            if (figure) {
                   figure.style.transform = 'scale(1)';
-                  figure.style.borderRadius = '0'; 
+                  figure.style.borderRadius = '0';
             }
       })
 })
@@ -105,6 +105,45 @@ function videoAnimation() {
 
 }
 
+function horizontalScroll(){
+      gsap.to(".horizontal-section-title", {
+            transform: "translateX(-140%)",
+            scrollTrigger: {
+                  trigger: ".horizontal-section",
+                  scroller: ".main",
+                  markers: false,
+                  start: "top 0%",
+                  end: "top -100%",
+                  pin: true,
+                  scrub: 3
+            }
+      })
+}
+
+function contectAanimation(){
+      let t4 = gsap.timeline({
+            scrollTrigger: {
+                  trigger: ".contect-section",
+                  scroller: ".main",
+                  markers: false,
+                  start: "top 47%",
+                  end: "top 0%",
+                  scrub: 3
+            }
+      })
+      
+      t4.from(".contact-heading h1", {
+            y: 70,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.4,
+            
+        })
+}
+
+
 
 loadingAnimation();
 videoAnimation();
+horizontalScroll();
+contectAanimation();
